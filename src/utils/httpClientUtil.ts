@@ -1,6 +1,8 @@
+import { IVacant } from "@/models";
+
 const baseUrl:string = "http://vacantsbackendgates-production.up.railway.app/api/v1/";
 
-export default class HttpClient{
+export default class HttpClientUtil{
     private baseUrl:string;
     constructor(urlClient?:string){
         this.baseUrl = urlClient || baseUrl;
@@ -14,6 +16,17 @@ export default class HttpClient{
         });
         return await this.manageResponse(response);
         
+    };
+    
+    async post<T>(url:string, vacant: Partial<IVacant>):Promise<T>{
+        const headers: {[key:string]:string} = await this.getHeaders();
+        const response = await fetch(`${this.baseUrl}${url}`, {
+            method: "POST",
+            headers,
+            body: JSON.stringify(vacant),
+            cache: "no-store"
+        });
+        return await this.manageResponse(response);
     }
 
     async getHeaders():Promise<{[key:string]:string}>{

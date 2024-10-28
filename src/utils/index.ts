@@ -1,1 +1,4 @@
-export * from './httpClient';
+import HttpClientUtil from "./httpClientUtil";
+export {
+    HttpClientUtil,
+}
