@@ -1,0 +1,9 @@
+
+.section > div.section-title{
+    display: flex;
+    justify-content: space-between;
+}
+.section > div.section-cards{
+    display: flex;
+    gap: 10px;
+}
