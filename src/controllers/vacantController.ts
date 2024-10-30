@@ -4,7 +4,7 @@ import {VacantService} from "@/services";
 class VacantController{
     private vacantService:VacantService = new VacantService();
 
-    async getAllVacants(page:number, size:number):Promise<{content:Content[], totalPages:number, totalElements:number} | {message:string}>{
+    async getAllVacants(page:number, size:number):Promise<{content:Content[], pageable:{pageNumber:number}, totalPages:number} | {message:string}>{
         const data = await this.vacantService.findAll(page, size);
         if("message" in data){
             return data;

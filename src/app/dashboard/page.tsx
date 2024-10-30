@@ -24,7 +24,7 @@ export default async function Dashboard({searchParams}:IDashboardProps) {
     const page = searchParams.page ? parseInt(searchParams.page) : 1;
     const size = searchParams.size ? parseInt(searchParams.size) : 5;
 
-    const vacancies: {content: Content[], totalPages: number, totalElements: number } | {message:string} = await VacantController.getAllVacants(page, size);
+    const vacancies: {content: Content[], pageable: {pageNumber: number}, totalPages: number} | {message:string} = await VacantController.getAllVacants(page, size);
     if("message" in vacancies){
         console.log("message", vacancies.message);
         return;
@@ -35,6 +35,8 @@ export default async function Dashboard({searchParams}:IDashboardProps) {
         <div className="content-dashboard">
             <Vacant
             vacants={vacancies.content}
+            pageNumber={vacancies.pageable.pageNumber}
+            totalPages={vacancies.totalPages}
             />
         </div>
     )

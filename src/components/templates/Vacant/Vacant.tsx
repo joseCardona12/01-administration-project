@@ -4,9 +4,11 @@ import "./vacantStyles.scss";
 import { Content } from "@/models";
 
 interface IVacantProps{
-    vacants: Content[]
+    vacants: Content[],
+    pageNumber:number,
+    totalPages:number
 }
-export default function Vacant({vacants}:IVacantProps):React.ReactNode{
+export default function Vacant({vacants, pageNumber, totalPages}:IVacantProps):React.ReactNode{
     return(
         <>
         <Header
@@ -20,8 +22,8 @@ export default function Vacant({vacants}:IVacantProps):React.ReactNode{
             />
         </main>
         <Footer
-        page={1}
-        totalPages={1}  
+        page={pageNumber}
+        totalPages={totalPages}
         />
         </>
     )

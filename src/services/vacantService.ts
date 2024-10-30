@@ -7,15 +7,15 @@ export default class VacantService {
   async findAll(
     page: number,
     size: number
-  ): Promise<{ content: Content[], totalPages: number, totalElements: number } | {message:string}> {
+  ): Promise<{ content: Content[], pageable: {pageNumber: number}, totalPages: number }| {message:string}> {
     try{
         const data = await this.httpClientUtil.get<IResponseVacant>(
           "vacants",
           page,
           size
         );
-        const { content, totalPages, totalElements } = data;
-        return { content, totalPages, totalElements };
+        const { content, pageable: {pageNumber}, totalPages } = data;
+        return { content, pageable: {pageNumber}, totalPages };
 
     }catch(error:unknown){
         return ({message: `Error with the method findAll: ERROR:${error}`})
