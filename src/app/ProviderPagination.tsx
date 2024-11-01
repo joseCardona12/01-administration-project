@@ -9,7 +9,7 @@ interface IProviderProps{
     }
 }
 
-export default function ProviderStore({children, pagination}: IProviderProps){
+export default function ProviderPagination({children, pagination}: IProviderProps){
     const paginationState = usePaginationState((state) => state);
     console.log("-----------",paginationState);
     return(

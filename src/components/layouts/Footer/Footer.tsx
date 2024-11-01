@@ -1,14 +1,10 @@
 import { Pagination } from "@/components/molecules";
 import "./footerStyles.scss";
 
-export default function Footer({page,totalPages}: {page:number,totalPages:number}):React.ReactNode{
-    console.log("page", page, "totalPages", totalPages);
+export default function Footer():React.ReactNode{
     return(
         <footer className="footer">
-            <Pagination
-            page={page}
-            totalPages={totalPages}
-            />
+            <Pagination />
         </footer>
     )
 }

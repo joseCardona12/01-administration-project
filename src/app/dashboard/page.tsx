@@ -3,7 +3,7 @@ import { VacantController } from "@/controllers"
 import { Content } from "@/models";
 import "./dashboardStyles.scss";
 import { usePaginationState } from "@/global-state/pagination";
-import ProviderStore from "../Provider";
+import ProviderPagination from "../ProviderPagination";
 
 interface IDashboardProps {
     searchParams: {
@@ -35,13 +35,12 @@ export default async function Dashboard({ searchParams }: IDashboardProps) {
     console.log("vacancies", vacancies);
 
     return (
-        <ProviderStore pagination={{page:vacancies.pageable.pageNumber, totalPages:vacancies.totalPages}}>
-
+        <ProviderPagination pagination={{page:vacancies.pageable.pageNumber, totalPages:vacancies.totalPages}}>
             <div className="content-dashboard">
                 <Vacant
                     vacants={vacancies.content}
                 />
             </div>
-        </ProviderStore>
+        </ProviderPagination>
     )
 }
