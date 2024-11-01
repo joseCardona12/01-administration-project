@@ -25,6 +25,7 @@ export default function Section({titleSection, textButton, data}:ISectionVacantP
                     <Card
                     key={index}
                     title={item.title}
+                    id={item.id}
                     >
                         <p>{item.description}</p>
                         <p>State: <span className={item.status === "ACTIVE" ? "active" : "inactive"}>{item.status}</span></p>
