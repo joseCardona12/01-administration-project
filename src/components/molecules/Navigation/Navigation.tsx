@@ -1,6 +1,8 @@
 "use client";
 import { Button } from "@/components/atoms";
+import "../../../app/globals.scss";
 import "./navigationStyles.scss";
+import { SuitcaseIcon, BuildingIcon } from "@/assets/icons";
 
 
 export default function Navigation():React.ReactNode{
@@ -8,18 +10,14 @@ export default function Navigation():React.ReactNode{
         <nav className="navigation">
             <Button
             text="Vacancies"
-            backgroundColor="$background-color-main"
-            color="white"
-            borderRadius="8px"
-            icon={<i className="fa-solid fa-plus"></i>}
+            className="buttonVacant"
+            icon={<SuitcaseIcon />}
             onClick={()=>{console.log("creatte")}}  
             />
             <Button
             text="Vacancies"
-            backgroundColor="gray"
-            color="white"
-            borderRadius="8px"
-            icon={<i className="fa-solid fa-plus"></i>}
+            className="buttonCompany"
+            icon={<BuildingIcon />}
             onClick={()=>{console.log("creaete")}} 
             />
         </nav>

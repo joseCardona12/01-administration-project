@@ -4,21 +4,16 @@ import "./buttonStyles.scss";
 interface IButtonProps{
     icon?: React.ReactNode,
     text?:string,
-    backgroundColor?:string,
-    color?:string,
-    borderRadius?:string,
-    onClick?: () => void
+    className?:string,
+    onClick?: () => void,
+    disabled?:boolean
 }
 
 
-export default function Button({icon,text,backgroundColor,color,borderRadius,onClick}: IButtonProps):React.ReactNode{
+export default function Button({icon,text,className, onClick,disabled}: IButtonProps):React.ReactNode{
     return(
-        <button className="button" 
-        style={{
-            backgroundColor, 
-            color,
-            borderRadius
-        }} 
+        <button className={className}
+        disabled={disabled}
         onClick={onClick}>
             {icon}
             {text}

@@ -1,4 +1,40 @@
-.button{
+@import "../../../app/globals.scss";    
+
+button{
     border: none;
-    padding: 5px 10px;
+    border-radius: $border-radius-big;
+    padding: 5px $padding-medium;
+    display: flex;
+    align-items: center;
+    gap: $padding-small;
+}
+
+.buttonVacant,
+.button-add{ 
+    background-color:$color-purple-vacancy-normal;
+    color: $color-white;
+    cursor: pointer;
+    transition: basckground-color 0.2s ease;
+
+    &:hover{
+        background-color: $color-purple-vacancy-hover;
+    }
+}
+
+.pagination-button{
+    background-color: $background-gray-light-pagination;
+    :disabled{
+        background-color: $background-gray-light-inactive;
+    }
+}
+
+.buttonCompany{
+    background-color: $background-gray-light-inactive;
+    color: $color-medium-gray;  
+    cursor: pointer;
+    transition: basckground-color 0.2s ease;
+
+    &:hover{
+        background-color: $background-gray-light-pagination;
+    }
 }

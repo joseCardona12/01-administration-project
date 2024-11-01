@@ -1,8 +1,8 @@
 "use client";
 import { Button } from "@/components/atoms";
 import { ArrowBackIcon, ArrowRightIcon } from "@/assets/icons";
-import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import "./paginationStyles.scss";
 
 interface IPaginationProps{
     page:number,
@@ -11,6 +11,7 @@ interface IPaginationProps{
 export default function Pagination({page,totalPages}:IPaginationProps):React.ReactNode{
     const router = useRouter();
     const searchParams = useSearchParams();
+    console.log(page,totalPages);
 
     const onPageChange = (newPage:number):void =>{
         const params = new URLSearchParams(searchParams.toString());
@@ -21,12 +22,20 @@ export default function Pagination({page,totalPages}:IPaginationProps):React.Rea
     return(
         <div className="pagination">
             <Button
+            onClick={() => onPageChange(currentPage - 1)}
             icon={<ArrowBackIcon />}
+            disabled={currentPage === 1}
+            className="pagination-button"
              />
-            Page {page}
-            of {totalPages}
+             <span>Page</span>
+             <span>{page}</span>
+             <span>Of</span>
+             <span>{totalPages}</span>
             <Button
+            onClick={() => onPageChange(currentPage + 1)}
             icon={<ArrowRightIcon />}
+            disabled={currentPage === totalPages}
+            className="pagination-button"
             />
         </div>
     )

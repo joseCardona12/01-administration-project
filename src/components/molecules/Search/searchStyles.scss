@@ -1,0 +1,14 @@
+@import "../../../app/globals.scss";
+
+.search{
+    border: 1px solid $border-gray;
+    border-radius: $border-radius-big;
+    padding: $padding-small;
+    display: flex;
+    align-items: center;
+    gap: $padding-small;
+}
+
+.search > .search-icon{
+    color: $color-medium-gray;
+}

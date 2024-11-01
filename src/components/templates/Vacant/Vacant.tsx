@@ -1,29 +1,30 @@
+"use client";
 import { Header, Footer } from "@/components/layouts";
 import { Section } from "@/components/organisms";
 import "./vacantStyles.scss";
 import { Content } from "@/models";
+import { useState } from "react";
+import { usePaginationState } from "@/global-state/pagination";
 
 interface IVacantProps{
     vacants: Content[],
-    pageNumber:number,
-    totalPages:number
 }
-export default function Vacant({vacants, pageNumber, totalPages}:IVacantProps):React.ReactNode{
+export default function Vacant({vacants}:IVacantProps):React.ReactNode{
+    const pagination = usePaginationState((state)=>state);
+    console.log(pagination);
     return(
         <>
         <Header
-        title="Vacant"
+        title="Administration panel"
         />
         <main className="main">
             <Section
-            titleSection="Vacant"
+            titleSection="Vacants"
             textButton="Add Vacant"
             data={vacants}
             />
         </main>
         <Footer
-        page={pageNumber}
-        totalPages={totalPages}
         />
         </>
     )

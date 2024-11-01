@@ -1,3 +1,10 @@
+@import "../../../app/globals.scss";
+
+.section{
+    display: flex;
+    flex-direction: column;
+    gap: $padding-medium;
+}
 
 .section > div.section-title{
     display: flex;
@@ -5,5 +12,7 @@
 }
 .section > div.section-cards{
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: $padding-medium;
+    font-size: .9rem;
 }

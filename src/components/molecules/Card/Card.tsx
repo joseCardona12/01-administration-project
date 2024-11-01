@@ -1,4 +1,5 @@
-import { EditIcon, DeleteIcon } from "@/assets/icons"
+import { EditIcon, DeleteIcon } from "@/assets/icons";
+import "./cardStyles.scss";
 
 interface ICardProps{
     title:string,
@@ -15,8 +16,14 @@ export default function Card({title,children}: ICardProps):React.ReactNode{
                 {children}
             </div>
             <div className="card-footer">
-                <EditIcon />
-                <DeleteIcon />
+                <div className="button-icon edit-icon">
+                    <EditIcon  
+                    />
+                </div>
+                <div className="button-icon delete-icon">
+                    <DeleteIcon
+                    />
+                </div>
             </div>
         </div>
     )

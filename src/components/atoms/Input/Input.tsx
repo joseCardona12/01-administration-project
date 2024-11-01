@@ -1,3 +1,5 @@
+import "./inputStyles.scss";
+
 interface IInputProps{
     type:string,
     name:string,
@@ -8,7 +10,7 @@ interface IInputProps{
 
 export default function Input({type,name,value,onChange,placeholder}: IInputProps):React.ReactNode{
     return(
-        <input
+        <input className="input"
         type={type}
         name={name}
         value={value}

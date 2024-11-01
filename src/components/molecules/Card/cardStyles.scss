@@ -1,0 +1,42 @@
+@import "../../../app/globals.scss";
+
+.content-card{
+    box-shadow: $box-shadown-normal;
+    border-radius: $border-radius-small;
+    padding: $padding-medium;
+    width: calc((100% / 3) - $padding-medium);
+
+    .active{
+        background-color: $color-purple-vacancy-normal;
+        border-radius: $border-radius-small;
+    }
+
+}
+
+.content-card > div.card-footer{
+    display: flex;
+    justify-content: flex-end;
+    gap: $padding-small;
+
+    .button-icon{
+        border: 1px solid $border-gray;
+        padding: $padding-small;
+        border-radius: $border-radius-small;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover{
+            background-color: $background-color-hover;
+        }
+    }
+
+    .edit-icon{
+        color: $color-purple-vacancy-normal;     
+    }
+
+    .delete-icon{
+        color: red;
+    }
+}

@@ -15,6 +15,7 @@ export default function Section({titleSection, textButton, data}:ISectionVacantP
             <div className="section-title">
                 <h2>{titleSection}</h2>
                 <Button
+                className="button-add"
                 text={textButton}
                 icon={<IconsPlus />}
                 />
@@ -24,8 +25,11 @@ export default function Section({titleSection, textButton, data}:ISectionVacantP
                     <Card
                     key={index}
                     title={item.title}
-                    children={item.description}
-                    />
+                    >
+                        <p>{item.description}</p>
+                        <p>State: <span className={item.status === "ACTIVE" ? "active" : "inactive"}>{item.status}</span></p>
+                        <p>Company: {item.company.name}</p>
+                    </Card>
                 ))}
             </div>
         </section>
